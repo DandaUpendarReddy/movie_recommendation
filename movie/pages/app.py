@@ -4,23 +4,35 @@ import pandas as pd
 import pickle
 import numpy as np
 import scipy
-
+# Get the absolute path of the current file's directory
 FILE_DIR = os.path.dirname(os.path.abspath(__file__))
-# absolute path to this file's root directory
-PARENT_DIR = os.path.join(FILE_DIR, os.pardir)
-# absolute path of directory_of_interest
-dir_of_interest = os.path.join(PARENT_DIR, "resources")
 
-vector = os.path.join(dir_of_interest, "data", "movie_vector.pkl")
-model = os.path.join(dir_of_interest, "data", "nn_model1.pkl")
-vector = pickle.load(open(vector, 'rb'))
+# Get the absolute path of the project's root directory
+PARENT_DIR = os.path.abspath(os.path.join(FILE_DIR, os.pardir))
 
-model = pickle.load(open(model, 'rb'))
+# Get the absolute path of the directory containing the resources
+RESOURCES_DIR = os.path.join(PARENT_DIR, "resources")
 
-DATA_PATH = os.path.join(dir_of_interest, "data", "movie.csv")
+# Get the absolute path of the movie.csv file
+DATA_PATH = os.path.join(RESOURCES_DIR, "data", "movie.csv")
+
+# Get the absolute path of the model pickle file
+MODEL_PATH = os.path.join(RESOURCES_DIR, "data", "nn_model1.pkl")
+
+# Get the absolute path of the movie vector pickle file
+VECTOR_PATH = os.path.join(RESOURCES_DIR, "data", "movie_vector.pkl")
+
 
 # Load the movie dataframe from the CSV file
 df = pd.read_csv(DATA_PATH)
+
+# Load the model from the pickle file
+model = pickle.load(open(MODEL_PATH, 'rb'))
+
+# Load the movie vector from the pickle file
+vector = pickle.load(open(VECTOR_PATH, 'rb'))
+
+
 
 df.drop(labels='Unnamed: 0',axis=1,inplace=True)
 #st.dataframe(df)
