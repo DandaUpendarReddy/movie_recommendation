@@ -10,9 +10,9 @@ PARENT_DIR = os.path.join(FILE_DIR, os.pardir)
 # absolute path of directory_of_interest
 dir_of_interest = os.path.join(PARENT_DIR, "resources")
 
-vector = os.path.join(dir_of_interest, "data", "vector.pkl")
+vector = os.path.join(dir_of_interest, "data", "movie_vector.pkl")
 model = os.path.join(dir_of_interest, "data", "nn_model1.pkl")
-scaler = pickle.load(open(vector, 'rb'))
+vector = pickle.load(open(vector, 'rb'))
 
 model = pickle.load(open(model, 'rb'))
 
