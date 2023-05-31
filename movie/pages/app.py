@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import pickle
 import numpy as np
-import scipy
+
 # Get the absolute path of the current file's directory
 FILE_DIR = os.path.dirname(os.path.abspath(__file__))
 
