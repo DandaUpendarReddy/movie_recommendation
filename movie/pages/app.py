@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import pickle
 import numpy as np
+import scipy
 
 FILE_DIR = os.path.dirname(os.path.abspath(__file__))
 # absolute path to this file's root directory
